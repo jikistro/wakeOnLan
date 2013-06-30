@@ -8,6 +8,7 @@ import socket
 import re
 import struct
 import argparse
+import sys
 
 class MagicPacket(object):
     def __init__(self, eth_addr):
