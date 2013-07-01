@@ -8,7 +8,6 @@ import socket
 import re
 import struct
 import argparse
-import sys
 
 class MagicPacket(object):
     def __init__(self, eth_addr):
@@ -30,7 +29,7 @@ class MagicPacket(object):
             for i in range(0, len(data_fmt), 2):
                 send_data += struct.pack('B', int( data_fmt[i:i + 2], 16))
             self.wol_sock.sendto(send_data, ('255.255.255.255', 7))
-            print("Magic packet has been sent to \'{}\'".format(sys.argv[1]))
+            print("Magic packet has been sent to \'{}\'".format(self.eth_addr))
 
         except ValueError:
             print("Invalid ethernet address format.")
